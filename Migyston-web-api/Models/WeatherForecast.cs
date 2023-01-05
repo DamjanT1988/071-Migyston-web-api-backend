@@ -1,4 +1,4 @@
-namespace Migyston_web_api
+namespace Migyston_web_api.Models
 {
     public class WeatherForecast
     {

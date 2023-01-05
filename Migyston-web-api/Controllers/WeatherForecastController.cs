@@ -1,4 +1,5 @@
 using Microsoft.AspNetCore.Mvc;
+using Migyston_web_api.Models;
 
 namespace Migyston_web_api.Controllers
 {
