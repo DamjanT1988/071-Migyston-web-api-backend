@@ -1,0 +1,42 @@
+[
+    {
+        "Id": 1,
+        "Date": "2023-01-08T16:04:33.2104627+01:00",
+        "Product_title": "I",
+        "Ean_number": "Projing",
+        "Product_description": "A",
+        "Price": 44,
+        "Amount_storage": 22,
+        "Expiration_date": "2"
+    },
+    {
+        "Id": 2,
+        "Date": "2023-01-08T16:08:21.55983+01:00",
+        "Product_title": "I",
+        "Ean_number": "Projing",
+        "Product_description": "A",
+        "Price": 44,
+        "Amount_storage": 22,
+        "Expiration_date": "2"
+    },
+    {
+        "Id": 3,
+        "Date": "2023-01-08T16:08:22.3885808+01:00",
+        "Product_title": "I",
+        "Ean_number": "Projing",
+        "Product_description": "A",
+        "Price": 44,
+        "Amount_storage": 22,
+        "Expiration_date": "2"
+    },
+    {
+        "Id": 4,
+        "Date": "2023-01-08T16:08:23.094552+01:00",
+        "Product_title": "I",
+        "Ean_number": "Projing",
+        "Product_description": "A",
+        "Price": 44,
+        "Amount_storage": 22,
+        "Expiration_date": "2"
+    }
+]
