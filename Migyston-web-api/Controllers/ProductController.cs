@@ -18,14 +18,14 @@ namespace Migyston_web_api.Controllers
 
         // GET all action
         [HttpGet]
-        public ActionResult<List<Product>> GetAll() =>
-        ProductServices.GetAll();
+        public ActionResult<List<Product>> GetAllProducts() =>
+        ProductServices.GetAllProducts();
 
         // GET by Id action
         [HttpGet("{id}")]
-        public ActionResult<Product> Get(int id)
+        public ActionResult<Product> GetProduct(int id)
         {
-            var product = ProductServices.Get(id);
+            var product = ProductServices.GetProduct(id);
 
             if (product == null)
                 return NotFound();
@@ -48,27 +48,27 @@ namespace Migyston_web_api.Controllers
             if (id != product.Id)
                 return BadRequest();
 
-            var existingProduct = ProductServices.Get(id);
+            var existingProduct = ProductServices.GetProduct(id);
             if (existingProduct is null)
                 return NotFound();
 
             ProductServices.Update(product);
 
-            return NoContent();
+            return Content("Product article " + id + " is updated");
         }
 
         // DELETE action
         [HttpDelete("{id}")]
         public IActionResult Delete(int id)
         {
-            var product = ProductServices.Get(id);
+            var product = ProductServices.GetProduct(id);
 
             if (product is null)
                 return NotFound();
 
             ProductServices.Delete(id);
 
-            return NoContent();
+            return Content("Product article " + id + " is deleted");
         }
     }
 }

@@ -13,23 +13,28 @@ namespace Migyston_web_api.Services
 {
     public static class ProductServices
     {
+
         static List<Product> Products { get; set; }
-        static int nextId = 1;
+        
+        //constructor
         static ProductServices()
         {
-            Products = new List<Product>
-        {};
+            Products = new List<Product> { };
+            LoadFile();
         }
 
-        public static List<Product> GetAll()
+        public static List<Product> GetAllProducts()
         {
-            LoadFile();
             return Products;
         }
-        public static Product? Get(int id) => Products.FirstOrDefault(p => p.Id == id);
+        public static Product? GetProduct(int id)
+        {
+            return Products.FirstOrDefault(p => p.Id == id);
+        }
 
         public static void Add(Product product)
         {
+            int nextId = Products.Count() + 1;
             product.Id = nextId++;
             product.Date = DateTime.Now;
             Products.Add(product);
@@ -38,11 +43,12 @@ namespace Migyston_web_api.Services
 
         public static void Delete(int id)
         {
-            var product = Get(id);
+            var product = GetProduct(id);
             if (product is null)
                 return;
 
             Products.Remove(product);
+            SaveProducts();
         }
 
         public static void Update(Product product)
@@ -52,7 +58,11 @@ namespace Migyston_web_api.Services
                 return;
 
             Products[index] = product;
+            SaveProducts();
         }
+
+        //--METHODS
+
         //save the list to a file
         public static void SaveProducts()
         {
