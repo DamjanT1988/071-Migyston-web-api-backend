@@ -94,6 +94,8 @@ namespace Migyston_web_api.Services
                     Price = obj[i].Price,
                     Amount_storage = obj[i].Amount_storage,
                     Expiration_date = obj[i].Expiration_date,
+                    Category = obj[i].Category,
+                    IsSwedish = obj[i].IsSwedish,   
                     Date = obj[i].Date
                 });
             }
