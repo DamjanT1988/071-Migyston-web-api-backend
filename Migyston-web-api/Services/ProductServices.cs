@@ -13,7 +13,7 @@ namespace Migyston_web_api.Services
 {
     public static class ProductServices
     {
-
+        //list
         static List<Product> Products { get; set; }
         
         //constructor
@@ -22,6 +22,9 @@ namespace Migyston_web_api.Services
             Products = new List<Product> { };
             LoadFile();
         }
+
+
+        //---CRUD METHODS
 
         public static List<Product> GetAllProducts()
         {
@@ -34,20 +37,8 @@ namespace Migyston_web_api.Services
 
         public static void Add(Product product)
         {
-            int nextId = Products.Count() + 1;
-            product.Id = nextId++;
             product.Date = DateTime.Now;
             Products.Add(product);
-            SaveProducts();
-        }
-
-        public static void Delete(int id)
-        {
-            var product = GetProduct(id);
-            if (product is null)
-                return;
-
-            Products.Remove(product);
             SaveProducts();
         }
 
@@ -61,10 +52,20 @@ namespace Migyston_web_api.Services
             SaveProducts();
         }
 
-        //--METHODS
+        public static void Delete(int id)
+        {
+            var product = GetProduct(id);
+            if (product is null)
+                return;
+
+            Products.Remove(product);
+            SaveProducts();
+        }
+
+        //---DATABASE METHODS
 
         //save the list to a file
-        public static void SaveProducts()
+        static void SaveProducts()
         {
             //serialize the list to a variable
             string json = JsonSerializer.Serialize(Products);

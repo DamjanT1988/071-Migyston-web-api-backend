@@ -18,7 +18,7 @@ namespace Migyston_web_api.Models
         public decimal? Price { get; set; }
         public int? Amount_storage { get; set; }
         public string? Expiration_date { get; set; }
-        public string? Category { get; set; }
+        public int? Category { get; set; }
         public bool? IsSwedish { get; set; }
 
 
