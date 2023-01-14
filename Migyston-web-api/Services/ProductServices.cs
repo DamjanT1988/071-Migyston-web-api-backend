@@ -13,52 +13,65 @@ namespace Migyston_web_api.Services
 {
     public static class ProductServices
     {
-        //list
+//---START FIELDS
+
+        //initiate list
         static List<Product> Products { get; set; }
         
         //constructor
         static ProductServices()
         {
+            //create new list
             Products = new List<Product> { };
+            //get products from database and fill list
             LoadFile();
         }
 
 
         //---CRUD METHODS
-
+        //get all products from list
         public static List<Product> GetAllProducts()
         {
             return Products;
         }
+        //get specific product from list
         public static Product? GetProduct(int id)
         {
             return Products.FirstOrDefault(p => p.Id == id);
         }
-
+        //add a new product to list
         public static void Add(Product product)
         {
+            //set date in property
             product.Date = DateTime.Now;
+            //add to list
             Products.Add(product);
+            //save to database
             SaveProducts();
         }
-
+        //update a specific product
         public static void Update(Product product)
         {
+            //find product index
             var index = Products.FindIndex(p => p.Id == product.Id);
             if (index == -1)
                 return;
-
+            //update product in list
             Products[index] = product;
+            //save to database
             SaveProducts();
         }
-
+        //delete product
         public static void Delete(int id)
         {
+            //get specific product
             var product = GetProduct(id);
+            //check
             if (product is null)
                 return;
-
+            //remove product
             Products.Remove(product);
+            //save the list to database
             SaveProducts();
         }
 
