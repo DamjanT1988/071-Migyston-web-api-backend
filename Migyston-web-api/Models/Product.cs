@@ -5,13 +5,14 @@ using System.Text;
 
 namespace Migyston_web_api.Models
 {
+    //product object
     public class Product
     {
-        //auto
+        //data fields
         public int Id { get; set; }
         public DateTime Date { get; set; }
 
-        //user input
+        //user input and object properties
         public string? Product_title { get; set; }
         public string? Ean_number { get; set; }
         public string? Product_description { get; set; }
